@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-blue-900">
+  <div class="relative gradient-bg p-4 flex flex-col items-center justify-center text-center">
+    <div class="absolute top-4 left-4">
+      <img src="static/logo.svg" />
+    </div>
+    <h3 class="text-white text-[60px] leading-none">Посмотрите</h3>
+    <div class="flex justify-between flex-wrap gap-4 content-center">
+      <h3 class="text-white text-[60px] leading-none">В камеру</h3>
+      <div class="flex flex-col justify-center">
+        <img src="static/eye.svg" class="h-[55px] w-[55px] mt-2" />
+      </div>
+    </div>
+    <div class="camera-container">
+      <img src="" class="img-feed" />
+    </div>
+  </div>
+
+  <script>
+    var ws = new WebSocket("ws://localhost:8000/ws");
+
+    ws.addEventListener("open", (event) => {
+      console.log(">>> WS OPENED")
+    });
+
+    img_container = document.querySelector(".img-feed");
+    ws.onmessage = function (event) {
+      console.log(">>> GOT IMAGE")
+      console.log(event.data)
+      img_container.src = `data:image/jpg;base64,${event.data}`
+    };
+  </script>
+</body>
+
+</html>
