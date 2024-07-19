@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="static/style.css">
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-blue-900">
-  <div class="relative gradient-bg p-4 flex flex-col items-center justify-center text-center">
+<body class="flex items-center justify-center h-screen bg-blue-900">
+  <div class="w-full h-full relative p-4 flex flex-col items-center justify-center text-center"
+  style="background: linear-gradient(-41.67deg, #000 -9.96%, #060698 107.06%);">
     <div class="absolute top-4 left-4">
       <img src="static/logo.svg" />
     </div>
@@ -21,12 +22,12 @@
         <img src="static/eye.svg" class="h-[55px] w-[55px] mt-2" />
       </div>
     </div>
-    <div class="camera-container">
-      <img src="" class="img-feed" />
+    <div class="w-[80%] px-[-1000px] flex justify-center aspect-square mt-16 overflow-hidden relative rounded-[38px] border-white border-4 shadow-2xl">
+      <img src="" class="h-full img-feed bg-black w-[700px]" />
     </div>
   </div>
 
-  <script>
+  <!-- <script>
     var ws = new WebSocket("ws://localhost:8000/ws");
 
     ws.addEventListener("open", (event) => {
@@ -39,7 +40,7 @@
       console.log(event.data)
       img_container.src = `data:image/jpg;base64,${event.data}`
     };
-  </script>
+  </script> -->
 </body>
 
 </html>

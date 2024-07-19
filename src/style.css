@@ -701,13 +701,6 @@ body {
 
 /* ---------- */
 
-.gradient-bg {
-  width: 600px;
-  height: 1024px;
-  border-radius: 15px;
-  background: linear-gradient(-41.67deg, #000 -9.96%, #060698 107.06%);
-}
-
 .camera-feed {
   width: 475px;
   height: 475px;
